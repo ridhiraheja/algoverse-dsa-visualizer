@@ -23,7 +23,7 @@ import { generateBubbleSortSteps, generateSelectionSortSteps, generateInsertionS
 import { generateLinearSearchSteps, generateBinarySearchSteps } from '../algorithms/searching'
 import { generateNQueensSteps, generateSudokuSteps, generateRatInMazeSteps } from '../algorithms/backtracking'
 import { generateBFSGraphSteps, generateDFSGraphSteps, generateDijkstraSteps, generateAStarSteps, generatePrimsSteps, generateKruskalsSteps, DEFAULT_GRAPH, generateRandomGraph } from '../algorithms/graphs'
-import { generateBSTSteps, generateAVLTreeSteps } from '../algorithms/trees'
+import { generateBSTSteps, generateAVLTreeSteps, generateSymmetricTreeSteps } from '../algorithms/trees'
 import { generateKnapsackSteps, generateLCSSteps, generateClimbingStairsSteps, generateFibonacciDPSteps, generateKadanesAlgoSteps } from '../algorithms/dp'
 import { generateActivitySelectionSteps, generateFractionalKnapsackSteps, generateBoatsToSavePeopleSteps, generateStonePileSteps } from '../algorithms/greedy'
 import { generateTwoSumSortedSteps, generateContainerWithMostWaterSteps, generateTortoiseHareSteps } from '../algorithms/two_pointers'
@@ -199,7 +199,7 @@ export default function Visualizer() {
         // Trees
         case 'bst': steps = generateBSTSteps(inputArray); break;
         case 'avlTree': steps = generateAVLTreeSteps(inputArray); break;
-        case 'symmetricTree': steps = generateBSTSteps(inputArray); break;
+        case 'symmetricTree': steps = generateSymmetricTreeSteps(); break;
         // DP
         case 'knapsack': steps = generateKnapsackSteps(); break;
         case 'lcs': steps = generateLCSSteps(); break;

@@ -1,4 +1,4 @@
-// Step Generators for Trees (Binary Search Tree & AVL Tree)
+// Step Generators for Trees (Binary Search Tree, AVL Tree & Symmetric Tree)
 
 export function generateBSTSteps(keys = [50, 30, 70, 20, 40, 60, 80]) {
   const steps = []
@@ -221,6 +221,86 @@ export function generateAVLTreeSteps(keys = [10, 20, 30, 40, 50, 25]) {
     activeNodeId: null,
     line: 8,
     description: 'AVL Tree Sequence Complete!'
+  })
+
+  return steps
+}
+
+export function generateSymmetricTreeSteps() {
+  const steps = []
+
+  // Create a 100% symmetric tree
+  const tree = {
+    id: 1,
+    key: 1,
+    left: {
+      id: 2,
+      key: 2,
+      left: { id: 4, key: 3, left: null, right: null },
+      right: { id: 5, key: 4, left: null, right: null }
+    },
+    right: {
+      id: 3,
+      key: 2,
+      left: { id: 6, key: 4, left: null, right: null },
+      right: { id: 7, key: 3, left: null, right: null }
+    }
+  }
+
+  const symmetryMatrix = [
+    ['Left Subtree Node', 'Right Subtree Node', 'Symmetric Match?'],
+    ['Node (2)', 'Node (2)', '✅ MATCH (2 == 2)'],
+    ['Left.Left (3)', 'Right.Right (3)', '✅ MATCH (3 == 3)'],
+    ['Left.Right (4)', 'Right.Left (4)', '✅ MATCH (4 == 4)']
+  ]
+
+  steps.push({
+    tree,
+    activeNodes: [1],
+    mirrorAxis: true,
+    dp: symmetryMatrix,
+    line: 1,
+    description: 'Start Symmetric Tree Check: Verify if left & right subtrees are mirror images around center axis.'
+  })
+
+  steps.push({
+    tree,
+    activeNodes: [2, 3],
+    mirrorAxis: true,
+    dp: symmetryMatrix,
+    currCell: [1, 2],
+    line: 2,
+    description: 'Compare Level 1: Left child (val: 2) vs Right child (val: 2) -> Match!'
+  })
+
+  steps.push({
+    tree,
+    activeNodes: [4, 7],
+    mirrorAxis: true,
+    dp: symmetryMatrix,
+    currCell: [2, 2],
+    line: 3,
+    description: 'Compare Outer Sub-branches: Left.Left (val: 3) vs Right.Right (val: 3) -> Match!'
+  })
+
+  steps.push({
+    tree,
+    activeNodes: [5, 6],
+    mirrorAxis: true,
+    dp: symmetryMatrix,
+    currCell: [3, 2],
+    line: 4,
+    description: 'Compare Inner Sub-branches: Left.Right (val: 4) vs Right.Left (val: 4) -> Match!'
+  })
+
+  steps.push({
+    tree,
+    activeNodes: [1, 2, 3, 4, 5, 6, 7],
+    mirrorAxis: true,
+    dp: symmetryMatrix,
+    done: true,
+    line: 5,
+    description: 'Result: Binary Tree is 100% SYMMETRIC (Perfect Mirror Image)!'
   })
 
   return steps
