@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { SoundProvider } from './context/SoundContext'
 import { StepPlayerProvider } from './context/StepPlayerContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -26,6 +26,7 @@ export default function App() {
               <Navbar />
               <main style={{ flex: 1 }}>
                 <Routes>
+                  {/* Default Initial Route: Welcome Entrance Screen */}
                   <Route path="/" element={<WelcomeScreen />} />
                   <Route path="/home" element={<Home />} />
                   <Route path="/visualizer" element={<Visualizer />} />
@@ -37,6 +38,9 @@ export default function App() {
                   <Route path="/benchmark" element={<Benchmark />} />
                   <Route path="/compare" element={<Compare />} />
                   <Route path="/complexity" element={<ComplexityPanel />} />
+                  
+                  {/* Fallback wildcard route redirecting to Welcome Screen */}
+                  <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
               </main>
             </div>
