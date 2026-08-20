@@ -31,7 +31,7 @@ from backend.algorithms.graphs import (
     generate_dfs_steps,
     generate_dijkstra_steps
 )
-from backend.algorithms.trees import generate_bst_steps
+from backend.algorithms.trees import generate_bst_steps, generate_symmetric_tree_steps
 from backend.algorithms.dp import (
     generate_knapsack_steps,
     generate_lcs_steps,
@@ -271,6 +271,8 @@ def get_algorithm_steps(req: StepsRequest):
         return {"steps": generate_dijkstra_steps(graph)}
     elif algo == 'bst':
         return {"steps": generate_bst_steps(data[:7])}
+    elif algo == 'symmetricTree':
+        return {"steps": generate_symmetric_tree_steps()}
     elif algo == 'knapsack':
         return {"steps": generate_knapsack_steps()}
     elif algo == 'lcs':
