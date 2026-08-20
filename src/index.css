@@ -1,0 +1,207 @@
+:root {
+  /* Default Dark Mode Theme - Clean, Minimal & Elegant Emerald */
+  --bg-primary: #0b0f19;
+  --bg-secondary: #111827;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-card-hover: rgba(31, 41, 55, 0.9);
+  
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  
+  --accent-primary: #10b981;   /* Vibrant Emerald Green */
+  --accent-primary-hover: #059669;
+  --accent-secondary: #f59e0b; /* Amber */
+  --accent-cyan: #06b6d4;      /* Cyan */
+  
+  --success: #10b981;
+  --success-glow: rgba(16, 185, 129, 0.25);
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --danger-glow: rgba(239, 68, 68, 0.25);
+  
+  --comparing-color: #f59e0b;
+  --swapped-color: #ef4444;
+  --sorted-color: #10b981;
+  --default-bar: #10b981;
+  
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(16, 185, 129, 0.25);
+  --border-radius-sm: 8px;
+  --border-radius: 14px;
+  --border-radius-lg: 20px;
+  
+  --glass-bg: rgba(17, 24, 39, 0.85);
+  --glass-blur: blur(16px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+
+  --notebook-margin: rgba(239, 68, 68, 0.3);
+  --notebook-grid: none;
+
+  --font-heading: 'Space Grotesk', 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-code: 'Fira Code', monospace;
+}
+
+[data-theme="light"] {
+  /* Off-White Light Notebook Theme */
+  --bg-primary: #fbf9f4; /* Warm Off-White Cream Paper */
+  --bg-secondary: #f4efdf;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fcfbfa;
+  
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  
+  --accent-primary: #059669; /* Rich Emerald Green */
+  --accent-primary-hover: #047857;
+  --accent-secondary: #d97706;
+  --accent-cyan: #0284c7;
+  
+  --success: #059669;
+  --success-glow: rgba(5, 150, 105, 0.15);
+  --warning: #d97706;
+  --danger: #dc2626;
+  --danger-glow: rgba(220, 38, 38, 0.15);
+  
+  --comparing-color: #d97706;
+  --swapped-color: #dc2626;
+  --sorted-color: #059669;
+  --default-bar: #059669;
+  
+  --border-color: #e2e8f0;
+  --border-glow: rgba(5, 150, 105, 0.15);
+  
+  --glass-bg: #ffffff;
+  --glass-blur: blur(8px);
+  --glass-border: 1px solid #e2e8f0;
+  --glass-shadow: 0 4px 16px 0 rgba(148, 163, 184, 0.12);
+
+  --notebook-margin: #f87171;
+  --notebook-grid: linear-gradient(to bottom, transparent 27px, rgba(5, 150, 105, 0.06) 28px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  background-image: var(--notebook-grid);
+  background-size: 100% 28px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Clean Professional Glass & Notebook Cards */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+[data-theme="light"] .glass-card {
+  border-left: 3px solid var(--notebook-margin);
+  background-image: linear-gradient(to bottom, transparent 27px, rgba(5, 150, 105, 0.03) 28px);
+  background-size: 100% 28px;
+}
+
+.glass-card:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 8px 24px 0 rgba(16, 185, 129, 0.12);
+}
+
+.glass-nav {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .glass-nav {
+  background: rgba(251, 249, 244, 0.9);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .gradient-text {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-accent-text {
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Glow Effects */
+.glow-primary {
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.25);
+}
+
+/* Responsive Container Helper */
+.app-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
